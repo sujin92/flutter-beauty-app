@@ -1,3 +1,4 @@
+import 'package:beauty/pages/detail/styleBookDetail.dart';
 import 'package:beauty/theme/theme.dart';
 import 'package:beauty/widget/navigationBar.dart';
 import 'package:beauty/widget/searchBar.dart';
@@ -108,77 +109,84 @@ class PopularDisignerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(0),
-      child: Container(
-        height: 400,
-        decoration: BoxDecoration(
-          color: context.beautyTheme.whiteColor,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 5,
-              color: const Color(0xff7f7f7f).withAlpha(40),
-              offset: const Offset(5, 5),
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10.0),
-                  topRight: Radius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Image.asset(
-                    "assets/image/test.png",
-                    width: 200,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
-                    child: Text(
-                      "임수진 디자이너",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Icon(
-                    Icons.favorite,
-                    color: context.beautyTheme.pointColor,
-                    size: 15,
-                  ),
-                  const Text(
-                    "20",
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                child: Text(
-                  "더컴퍼니헤어",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Text("#중단발허쉬컷"),
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const StyleBookDetail(),
+          ));
+        },
+        child: Container(
+          height: 400,
+          decoration: BoxDecoration(
+            color: context.beautyTheme.whiteColor,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 5,
+                color: const Color(0xff7f7f7f).withAlpha(40),
+                offset: const Offset(5, 5),
               ),
             ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10.0),
+                    topRight: Radius.circular(10.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Image.asset(
+                      "assets/image/test.png",
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                      child: Text(
+                        "임수진 디자이너",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Icon(
+                      Icons.favorite,
+                      color: context.beautyTheme.pointColor,
+                      size: 15,
+                    ),
+                    const Text(
+                      "20",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                  child: Text(
+                    "더컴퍼니헤어",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Text("#중단발허쉬컷"),
+                ),
+              ],
+            ),
           ),
         ),
       ),
