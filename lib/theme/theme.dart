@@ -26,3 +26,46 @@ class _$BeautyTheme {
     Color(0xFF333333),
   ];
 }
+
+class ProfileImage extends StatelessWidget {
+  const ProfileImage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Container(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.bottomRight,
+              children: [
+                Image.asset(
+                  "assets/image/profileUser.png",
+                  width: 60,
+                  height: 60,
+                  fit: BoxFit.contain,
+                ),
+                Image.asset(
+                  "assets/image/camerapng.png",
+                  width: 25,
+                  height: 25,
+                  fit: BoxFit.contain,
+                ),
+              ],
+            ),
+            const Text(
+              "임수진",
+              style: TextStyle(
+                height: 2,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,4 +1,5 @@
 import 'package:beauty/theme/theme.dart';
+import 'package:beauty/widget/navigationBar.dart';
 import 'package:beauty/widget/subAppBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class StyleBookDetail extends StatelessWidget {
           StyleDetailPage(),
         ],
       ),
+      bottomNavigationBar: DesignerNavigationBar(),
     );
   }
 }
@@ -83,40 +85,92 @@ class TopImageLayer extends HookConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           StyleImageContainer(),
-          const Text(
-            "바이올렛 브라운과 에쉬핑크의 만남\n너무 예쁜 컬로조합으로 염색시술 진행해 드렸습니다.",
-            style: TextStyle(
-              fontSize: 16,
-              height: 1.4,
+          const Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: Text(
+              "바이올렛 브라운과 에쉬핑크의 만남\n너무 예쁜 컬로조합으로 염색시술 진행해 드렸습니다.",
+              style: TextStyle(
+                fontSize: 16,
+                height: 1.6,
+              ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
             child: Row(
               children: [
-                Text("#어깨선아래"),
-                Text("#염색"),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Container(
+                    height: 32,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "#어깨선아래",
+                        style: TextStyle(
+                          color: context.beautyTheme.basicBlack,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    )),
+                  ),
+                ),
+                Container(
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "#염색",
+                      style: TextStyle(
+                        color: context.beautyTheme.basicBlack,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  )),
+                ),
               ],
             ),
           ),
-          Row(
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.favorite_border,
-                    color: context.beautyTheme.pointColor,
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.favorite_border,
+                        color: context.beautyTheme.pointColor,
+                      ),
+                      const Text(
+                        " 찜하기",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
                   ),
-                  const Text(" 찜하기"),
-                ],
-              ),
-              const Row(
-                children: [
-                  Icon(Icons.share),
-                  Text(" 공유하기"),
-                ],
-              ),
-            ],
+                ),
+                const Row(
+                  children: [
+                    Icon(Icons.share),
+                    Text(
+                      " 공유하기",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -146,7 +200,7 @@ class _ImageSliderState extends State<StyleImageContainer> {
         CarouselSlider(
           carouselController: _carouselController,
           options: CarouselOptions(
-            height: 400.0,
+            height: 430.0,
             enlargeCenterPage: true,
             autoPlay: false,
             enableInfiniteScroll: false,

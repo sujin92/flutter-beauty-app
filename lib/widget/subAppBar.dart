@@ -50,3 +50,31 @@ class DetailAppBar extends HookConsumerWidget {
     );
   }
 }
+
+class MessageAppBar extends HookConsumerWidget {
+  const MessageAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return AppBar(
+      title: const Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          "임수진 디자이너",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      elevation: 0,
+      actions: [
+        IconButton(
+          onPressed: null,
+          icon: Icon(
+            Icons.more_vert,
+            color: context.beautyTheme.basicBlack,
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -70,7 +70,7 @@ class _BottomNavigationBarExampleState
           CenterLayer(scrollController: scrollController),
         ],
       ),
-      bottomNavigationBar: const ReservationNavigationBar(),
+      bottomNavigationBar: const DesignerNavigationBar(),
     );
   }
 }
